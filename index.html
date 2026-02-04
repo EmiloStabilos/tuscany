@@ -1635,14 +1635,38 @@
       const searchPlaces = (query) => {
         if (searchController) searchController.abort();
         searchController = new AbortController();
-        const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&addressdetails=1&countrycodes=it&q=${encodeURIComponent(query)}`;
-        fetch(url, { signal: searchController.signal })
-          .then(r => r.json())
-          .then(results => renderStopSuggestions(Array.isArray(results) ? results : []))
-          .catch(() => {
-            clearSuggestions();
+ codex/review-and-optimize-code-akd2ym
+        const tuscanyViewbox = '9.6,44.5,12.5,42.1';
+        const tunedQuery = query.match(/\b(win(?:e|ery)|vin(?:e|o)|ristorante|hotel|agriturismo)\b/i)
+          ? query
+          : `${query} winery`;
+        const buildUrl = (q, bounded) => {
+          const params = new URLSearchParams({
+            format: 'jsonv2',
+            limit: '10',
+            addressdetails: '1',
+            extratags: '1',
+            countrycodes: 'it',
+            'accept-language': 'en',
+            q
           });
-      };
+          if (bounded){
+            params.set('viewbox', tuscanyViewbox);
+            params.set('bounded', '1');
+          }
+          return `https://nominatim.openstreetmap.org/search?${params.toString()}`;
+        };
+
+        const runSearch = (bounded) => fetch(buildUrl(tunedQuery, bounded), { signal: searchController.signal })
+          .then(r => r.json());
+
+        runSearch(true)
+          .then(results => {
+            const list = Array.isArray(results) ? results : [];
+            if (list.length > 0) return list;
+            return runSearch(false);
+          })
+
 
       els.stopSearch.addEventListener('input', () => {
         selectedPlace = null;
