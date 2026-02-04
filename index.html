@@ -299,6 +299,15 @@
     }
     .dot{ width:8px; height:8px; border-radius:99px; display:inline-block; }
 
+    #map{
+      height: 680px;
+      width:100%;
+      min-height:520px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(6,10,16,.35);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
     #map{ height: 680px; width:100%; border-radius: var(--radius); overflow:hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
     @media (max-width: 980px){ #map{ height: 520px; } }
 
@@ -333,6 +342,10 @@
       cursor:pointer;
       font-size:12px;
       color:var(--text);
+      background: rgba(6,10,16,.6);
+    }
+    .suggestion:last-child{ border-bottom:none; }
+    .suggestion:hover{ background: rgba(107,211,255,.15); }
     }
     .suggestion:last-child{ border-bottom:none; }
     .suggestion:hover{ background: rgba(92,200,255,.12); }
@@ -1675,6 +1688,11 @@
             if (list.length > 0) return list;
             return runSearch(false);
           })
+          .then(results => renderStopSuggestions(Array.isArray(results) ? results : []))
+          .catch(() => {
+            clearSuggestions();
+          });
+      };
 
 
       els.stopSearch.addEventListener('input', () => {
