@@ -1635,6 +1635,7 @@
       const searchPlaces = (query) => {
         if (searchController) searchController.abort();
         searchController = new AbortController();
+ codex/review-and-optimize-code-akd2ym
         const tuscanyViewbox = '9.6,44.5,12.5,42.1';
         const tunedQuery = query.match(/\b(win(?:e|ery)|vin(?:e|o)|ristorante|hotel|agriturismo)\b/i)
           ? query
@@ -1665,11 +1666,7 @@
             if (list.length > 0) return list;
             return runSearch(false);
           })
-          .then(results => renderStopSuggestions(Array.isArray(results) ? results : []))
-          .catch(() => {
-            clearSuggestions();
-          });
-      };
+
 
       els.stopSearch.addEventListener('input', () => {
         selectedPlace = null;
