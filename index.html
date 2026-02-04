@@ -24,17 +24,17 @@
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --panel:#111824;
-      --panel2:#0f1620;
+      --bg:#0a0f16;
+      --panel:#111a26;
+      --panel2:#0e1622;
       --text:#e9eef6;
       --muted:#a8b3c7;
-      --accent:#5cc8ff;
+      --accent:#6bd3ff;
       --good:#4ade80;
       --warn:#fbbf24;
       --bad:#fb7185;
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 14px 36px rgba(4,10,20,.45);
       --radius:18px;
       --radius2:14px;
       --route:#e11d48;
@@ -46,14 +46,14 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(92,200,255,.14), transparent 60%),
-        radial-gradient(1000px 700px at 90% 30%, rgba(74,222,128,.10), transparent 55%),
+        radial-gradient(1200px 800px at 15% 5%, rgba(107,211,255,.12), transparent 60%),
+        radial-gradient(1000px 700px at 85% 25%, rgba(74,222,128,.08), transparent 55%),
         var(--bg);
       color:var(--text);
     }
 
     header{
-      padding:22px 18px 10px;
+      padding:24px 18px 12px;
       max-width:1200px;
       margin:0 auto;
     }
@@ -67,16 +67,16 @@
 
     h1{
       margin:0;
-      font-size:20px;
-      letter-spacing:.2px;
+      font-size:22px;
+      letter-spacing:.3px;
       font-weight:800;
     }
 
     .subtitle{
       margin:6px 0 0;
       color:var(--muted);
-      font-size:13px;
-      line-height:1.4;
+      font-size:13.5px;
+      line-height:1.45;
       max-width:75ch;
     }
 
@@ -90,10 +90,10 @@
 
     .pill > span{
       border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
+      background:rgba(255,255,255,.04);
       padding:8px 10px;
       border-radius:999px;
-      font-size:12px;
+      font-size:11.5px;
       color:var(--muted);
       box-shadow:var(--shadow);
       backdrop-filter: blur(6px);
@@ -111,9 +111,9 @@
     .tabbtn{
       appearance:none;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.05);
       color: var(--muted);
-      padding:10px 12px;
+      padding:9px 14px;
       border-radius:999px;
       cursor:pointer;
       font-weight:700;
@@ -123,7 +123,7 @@
 
     .tabbtn.active{
       border-color: rgba(92,200,255,.45);
-      background: rgba(92,200,255,.16);
+      background: rgba(92,200,255,.18);
       color: var(--text);
     }
 
@@ -137,7 +137,7 @@
     .page.active{ display:block; }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -145,8 +145,8 @@
     }
 
     .card .hd{
-      padding:14px 14px 10px;
-      border-bottom:1px solid rgba(255,255,255,.06);
+      padding:16px 16px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -162,7 +162,7 @@
 
     .card .hd small{ color:var(--muted); }
 
-    .card .bd{ padding:14px; }
+    .card .bd{ padding:16px; }
 
     .grid2{
       display:grid;
@@ -175,8 +175,8 @@
     }
 
     .metric{
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.07);
+      background: rgba(8,12,18,.35);
+      border:1px solid rgba(255,255,255,.08);
       border-radius: var(--radius2);
       padding:12px;
     }
@@ -206,7 +206,7 @@
 
     .row{
       display:flex;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
       align-items:flex-end;
     }
@@ -220,42 +220,51 @@
 
     input[type="number"], input[type="text"], input[type="datetime-local"], input[type="date"], select{
       width:100%;
-      background: rgba(0,0,0,.20);
+      background: rgba(6,10,16,.5);
       color: var(--text);
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:12px;
-      padding:10px 10px;
+      padding:10px 12px;
       outline:none;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
 
-    input:focus, select:focus{ border-color: rgba(92,200,255,.55); }
+    input:focus, select:focus{
+      border-color: rgba(107,211,255,.65);
+      box-shadow: 0 0 0 3px rgba(107,211,255,.18);
+    }
 
     .btn{
       appearance:none;
       border:none;
-      background: rgba(92,200,255,.18);
+      background: linear-gradient(180deg, rgba(107,211,255,.28), rgba(107,211,255,.14));
       color: var(--text);
-      border:1px solid rgba(92,200,255,.35);
-      padding:10px 12px;
+      border:1px solid rgba(107,211,255,.35);
+      padding:10px 14px;
       border-radius: 12px;
       cursor:pointer;
       font-weight:800;
       font-size:12px;
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
     }
 
     .btn.secondary{
-      background: rgba(255,255,255,.04);
-      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
       color: var(--muted);
       font-weight:700;
     }
 
     .btn.danger{
-      background: rgba(251,113,133,.14);
-      border:1px solid rgba(251,113,133,.32);
+      background: rgba(251,113,133,.16);
+      border:1px solid rgba(251,113,133,.36);
     }
 
-    .btn:hover{ filter:brightness(1.08); }
+    .btn:hover{
+      filter:brightness(1.1);
+      box-shadow: 0 8px 18px rgba(3,10,20,.4);
+      transform: translateY(-1px);
+    }
 
     .table{
       width:100%;
@@ -263,8 +272,8 @@
       border-spacing:0;
       overflow:hidden;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.16);
+      border:1px solid rgba(255,255,255,.1);
+      background: rgba(6,10,16,.4);
     }
 
     .table th, .table td{
@@ -281,16 +290,24 @@
       align-items:center;
       gap:6px;
       font-size:11px;
-      padding:5px 8px;
+      padding:5px 9px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.10);
       color:var(--muted);
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.05);
       white-space:nowrap;
     }
     .dot{ width:8px; height:8px; border-radius:99px; display:inline-block; }
 
-    #map{ height: 680px; width:100%; border-radius: var(--radius); overflow:hidden; }
+    #map{
+      height: 680px;
+      width:100%;
+      min-height:520px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(6,10,16,.35);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
     @media (max-width: 980px){ #map{ height: 520px; } }
 
     .legend{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
@@ -311,12 +328,24 @@
     }
 
     .empty{
-      border:1px dashed rgba(255,255,255,.14);
+      border:1px dashed rgba(255,255,255,.16);
       border-radius:14px;
       padding:12px;
       color:var(--muted);
-      background: rgba(0,0,0,.10);
+      background: rgba(6,10,16,.4);
     }
+
+    .suggestion{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      cursor:pointer;
+      font-size:12px;
+      color:var(--text);
+      background: rgba(6,10,16,.6);
+    }
+    .suggestion:last-child{ border-bottom:none; }
+    .suggestion:hover{ background: rgba(107,211,255,.15); }
+    .suggestion small{ color: var(--muted); display:block; margin-top:4px; }
 
     /* Leaflet tweaks */
     .leaflet-control-attribution{ background: rgba(0,0,0,.35) !important; color: #cdd6e6 !important; }
@@ -354,14 +383,14 @@
     <section id="mapPage" class="page active">
       <div class="card">
         <div class="hd">
-          <h2>Map — bases + wine recommendations</h2>
+          <h2>Map — bases + activities</h2>
           <small>click markers for notes</small>
         </div>
         <div class="bd" style="padding:14px 14px 10px;">
           <div id="map"></div>
           <div class="legend">
             <span class="badge"><span class="dot" style="background:var(--accent)"></span>Base (overnight)</span>
-            <span class="badge"><span class="dot" style="background:var(--good)"></span>Wine stop (recommended area)</span>
+            <span class="badge"><span class="dot" style="background:var(--good)"></span>Activities (recommended area)</span>
             <span class="badge"><span class="dot" style="background:var(--warn)"></span>Quick stop</span>
             <span class="badge"><span class="dot" style="background:var(--route)"></span>Fastest road route</span>
           </div>
@@ -370,6 +399,33 @@
           <p class="note">
             The route line uses OSRM’s <strong>driving</strong> profile (fastest by default). If OSRM is unavailable, it falls back to a straight-line polyline.
           </p>
+          <div class="metric" style="margin-top:12px;">
+            <div class="k"><span>Add custom stops</span><span class="badge"><span class="dot" style="background:var(--good)"></span>Places</span></div>
+            <div class="row" style="margin-top:10px;">
+              <div style="flex:1; min-width:200px;">
+                <label for="stopType">Stop type</label>
+                <select id="stopType">
+                  <option value="base">Base (changes route)</option>
+                  <option value="activity">Activity (recommended area)</option>
+                </select>
+              </div>
+              <div style="flex:2; min-width:240px; position:relative;">
+                <label for="stopSearch">Search real places</label>
+                <input id="stopSearch" type="text" placeholder="Start typing a hotel, restaurant, winery, or place" autocomplete="off" />
+                <div id="stopSuggestions" class="card" style="position:absolute; left:0; right:0; top:66px; display:none; z-index:20; max-height:220px; overflow:auto;"></div>
+              </div>
+              <div style="flex:2; min-width:220px;">
+                <label for="stopNote">Note (optional)</label>
+                <input id="stopNote" type="text" placeholder="e.g., dinner reservation" />
+              </div>
+              <button class="btn" id="btnAddStop" type="button">Add stop</button>
+            </div>
+            <div class="row" style="justify-content:space-between; margin-top:10px;">
+              <p class="small" style="margin:0;">Uses OpenStreetMap search; select a suggestion to add.</p>
+              <button class="btn secondary" id="btnClearStops" type="button">Clear custom stops</button>
+            </div>
+            <div id="customStopsList" class="split" style="margin-top:10px;"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -488,7 +544,7 @@
           </table>
 
           <p class="note" style="margin-top:10px;">
-            Wine marker notes are intentionally “area-first” to avoid sending you to bus-stop wineries.
+            Activity marker notes are intentionally “area-first” to avoid sending you to bus-stop wineries.
             Use them to pick small producers nearby (book the 10:00 slot) and keep afternoons free.
           </p>
         </div>
@@ -846,7 +902,16 @@
       retFrom: document.getElementById('retFrom'),
       retTo: document.getElementById('retTo'),
       retDepart: document.getElementById('retDepart'),
-      retArrive: document.getElementById('retArrive')
+      retArrive: document.getElementById('retArrive'),
+
+      // Custom stops
+      stopType: document.getElementById('stopType'),
+      stopSearch: document.getElementById('stopSearch'),
+      stopSuggestions: document.getElementById('stopSuggestions'),
+      stopNote: document.getElementById('stopNote'),
+      btnAddStop: document.getElementById('btnAddStop'),
+      btnClearStops: document.getElementById('btnClearStops'),
+      customStopsList: document.getElementById('customStopsList')
     };
 
     function clampNumber(n){
@@ -1048,37 +1113,59 @@
     let currentBudget = loadBudgetV2();
 
     function renderBudgetItems(){
-      els.budgetTbody.innerHTML = '';
+      els.budgetTbody.textContent = '';
       const items = [...currentBudget.items].sort((a,b) => (b.date || '').localeCompare(a.date || '') || (b.id - a.id));
+      const fragment = document.createDocumentFragment();
 
       items.forEach(it => {
         const tr = document.createElement('tr');
         const date = it.date || '—';
         const cat = CATEGORY_LABELS[it.category] || it.category || '—';
-        const noteSafe = (it.note || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const note = (it.note || '').trim();
         const amt = fmt(currentBudget.currency, Number(it.amount) || 0);
-        tr.innerHTML = `
-          <td>${date}</td>
-          <td>${cat}</td>
-          <td>${noteSafe || '<span style="color:rgba(168,179,199,.75)">—</span>'}</td>
-          <td style="text-align:right; font-weight:800;">${amt}</td>
-          <td><button class="btn danger" type="button" data-del="${it.id}">Delete</button></td>
-        `;
-        els.budgetTbody.appendChild(tr);
+
+        const dateTd = document.createElement('td');
+        dateTd.textContent = date;
+
+        const catTd = document.createElement('td');
+        catTd.textContent = cat;
+
+        const noteTd = document.createElement('td');
+        if (note){
+          noteTd.textContent = note;
+        }else{
+          const emptyNote = document.createElement('span');
+          emptyNote.textContent = '—';
+          emptyNote.style.color = 'rgba(168,179,199,.75)';
+          noteTd.appendChild(emptyNote);
+        }
+
+        const amtTd = document.createElement('td');
+        amtTd.textContent = amt;
+        amtTd.style.textAlign = 'right';
+        amtTd.style.fontWeight = '800';
+
+        const btnTd = document.createElement('td');
+        const delBtn = document.createElement('button');
+        delBtn.className = 'btn danger';
+        delBtn.type = 'button';
+        delBtn.dataset.del = String(it.id);
+        delBtn.textContent = 'Delete';
+        btnTd.appendChild(delBtn);
+
+        tr.appendChild(dateTd);
+        tr.appendChild(catTd);
+        tr.appendChild(noteTd);
+        tr.appendChild(amtTd);
+        tr.appendChild(btnTd);
+        fragment.appendChild(tr);
       });
+
+      els.budgetTbody.appendChild(fragment);
 
       const empty = currentBudget.items.length === 0;
       els.budgetEmpty.style.display = empty ? 'block' : 'none';
 
-      els.budgetTbody.querySelectorAll('button[data-del]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = Number(btn.getAttribute('data-del'));
-          currentBudget.items = currentBudget.items.filter(x => x.id !== id);
-          saveBudgetV2(currentBudget);
-          renderBudgetItems();
-          updateBudgetUI();
-        });
-      });
     }
 
     function updateBudgetUI(){
@@ -1148,6 +1235,16 @@
         saveBudgetV2(currentBudget);
         els.bItemAmt.value = '';
         els.bItemNote.value = '';
+        renderBudgetItems();
+        updateBudgetUI();
+      });
+
+      els.budgetTbody.addEventListener('click', (event) => {
+        const btn = event.target.closest('button[data-del]');
+        if (!btn || !els.budgetTbody.contains(btn)) return;
+        const id = Number(btn.dataset.del);
+        currentBudget.items = currentBudget.items.filter(x => x.id !== id);
+        saveBudgetV2(currentBudget);
         renderBudgetItems();
         updateBudgetUI();
       });
@@ -1278,7 +1375,7 @@
       }
     }
 
-    // ---------- Map data (bases + wine areas) ----------
+    // ---------- Map data (bases + activities) ----------
     const bases = [
       { name: 'Florence (start/end)', nights: '—', lat: 43.7696, lng: 11.2558, note: 'Land → leave the city quickly for cooler hills. Return for flight.' },
       { name: 'Chianti Hills (Greve / Panzano base)', nights: 'Nights 1–2', lat: 43.5852, lng: 11.3150, note: 'Choose an agriturismo at elevation; tastings in the morning.' },
@@ -1286,7 +1383,7 @@
       { name: 'Bolgheri Coast (Bolgheri / Castagneto Carducci base)', nights: 'Nights 5–6', lat: 43.2410, lng: 10.6110, note: 'Sea breeze nights; wine mornings + beach afternoons.' }
     ];
 
-    const wineStops = [
+    const activitiesStops = [
       { name: 'Chianti Classico (Panzano area)', lat: 43.5428, lng: 11.3093, note: 'Look for small, appointment-only producers; avoid midday groups.' },
       { name: 'Radda / Gaiole high Chianti', lat: 43.4887, lng: 11.3734, note: 'Higher altitude → cooler. Great Sangiovese and calmer roads.' },
       { name: 'Brunello zone (north/east of Montalcino)', lat: 43.0575, lng: 11.4899, note: 'Book the 10:00 tasting. Stay outside town for fewer crowds.' },
@@ -1299,6 +1396,36 @@
     ];
 
     const florenceAirport = { name: 'Florence Airport (FLR)', lat: 43.8100, lng: 11.2050, note: 'Aeroporto di Firenze-Peretola. Return your car here.' };
+    const CUSTOM_STOPS_KEY = 'tuscanyTripCustomStops';
+    const CUSTOM_STOPS_DEFAULTS = { bases: [], activities: [] };
+    let customStops = loadCustomStops();
+
+    const ROUTE_ANCHORS = [
+      { id: 'florence-start', lat: 43.7696, lng: 11.2558 },
+      { id: 'chianti', lat: 43.5852, lng: 11.3150 },
+      { id: 'valdorcia', lat: 43.0676, lng: 11.6756 },
+      { id: 'bolgheri', lat: 43.2410, lng: 10.6110 },
+      { id: 'pisa', lat: 43.7229, lng: 10.3966 },
+      { id: 'florence-end', lat: 43.7696, lng: 11.2558 }
+    ];
+
+    function loadCustomStops(){
+      try{
+        const raw = localStorage.getItem(CUSTOM_STOPS_KEY);
+        if (!raw) return structuredClone(CUSTOM_STOPS_DEFAULTS);
+        const parsed = JSON.parse(raw);
+        return {
+          bases: Array.isArray(parsed.bases) ? parsed.bases : [],
+          activities: Array.isArray(parsed.activities) ? parsed.activities : []
+        };
+      }catch{
+        return structuredClone(CUSTOM_STOPS_DEFAULTS);
+      }
+    }
+
+    function saveCustomStops(model){
+      localStorage.setItem(CUSTOM_STOPS_KEY, JSON.stringify(model));
+    }
 
     function markerHtml(color){
       return `\
@@ -1332,6 +1459,316 @@
       }
     }
 
+    function buildRoutePoints(){
+      const anchors = [...ROUTE_ANCHORS];
+      const insertIndex = Math.max(0, anchors.findIndex(a => a.id === 'pisa'));
+      const customBases = customStops.bases.map(b => ({ lat: b.lat, lng: b.lng }));
+      const before = anchors.slice(0, insertIndex);
+      const after = anchors.slice(insertIndex);
+      return [...before, ...customBases, ...after].map(p => [p.lng, p.lat]);
+    }
+
+    function updateRoute(){
+      const map = window.__tripMap;
+      const layers = window.__tripMapLayers;
+      if (!map || !layers) return;
+
+      const { baseGroup, activityGroup, quickGroup, flightLayer } = layers;
+      const routeStyle = { color: getComputedStyle(document.documentElement).getPropertyValue('--route').trim() || '#e11d48', weight: 5, opacity: 0.9 };
+      const routePoints = buildRoutePoints();
+      if (window.__routeLayer){
+        map.removeLayer(window.__routeLayer);
+        window.__routeLayer = null;
+      }
+
+      if (routePoints.length < 2) return;
+
+      const coordString = routePoints.map(p => p.join(',')).join(';');
+      const fitToLayers = (routeLayer) => {
+        const all = L.featureGroup([baseGroup, activityGroup, quickGroup, flightLayer, routeLayer].filter(Boolean));
+        if (all.getLayers().length){
+          const b = all.getBounds().pad(0.18);
+          map.fitBounds(b);
+          window.__tripMapLastBounds = b;
+        }
+      };
+
+      fetch(`https://router.project-osrm.org/route/v1/driving/${coordString}?overview=full&geometries=geojson&alternatives=false&steps=false&annotations=false`)
+        .then(r => r.json())
+        .then(data => {
+          if (data.routes && data.routes[0] && data.routes[0].geometry){
+            window.__routeLayer = L.geoJSON(data.routes[0].geometry, routeStyle).addTo(map);
+            fitToLayers(window.__routeLayer);
+          }
+        })
+        .catch(() => {
+          window.__routeLayer = L.polyline(routePoints.map(p => [p[1], p[0]]), {
+            color: routeStyle.color,
+            weight: 4,
+            opacity: 0.5,
+            dashArray:'6 8'
+          }).addTo(map);
+          fitToLayers(window.__routeLayer);
+        });
+    }
+
+    function refreshMapLayers(){
+      const map = window.__tripMap;
+      const layers = window.__tripMapLayers;
+      if (!map || !layers) return;
+
+      const { baseGroup, activityGroup, quickGroup, flightLayer, baseIcon, activityIcon, quickIcon } = layers;
+      baseGroup.clearLayers();
+      activityGroup.clearLayers();
+      quickGroup.clearLayers();
+      flightLayer.clearLayers();
+
+      bases.forEach(b => {
+        L.marker([b.lat, b.lng], { icon: baseIcon })
+          .bindPopup(`<strong>${b.name}</strong><br/><span style="color:rgba(233,238,246,.75)">${b.nights}</span><br/><br/>${b.note}`)
+          .addTo(baseGroup);
+      });
+
+      customStops.bases.forEach(b => {
+        const note = b.note ? `<br/><br/>${b.note}` : '';
+        const meta = b.address ? `<br/><span style="color:rgba(233,238,246,.75)">${b.address}</span>` : '';
+        L.marker([b.lat, b.lng], { icon: baseIcon })
+          .bindPopup(`<strong>${b.name}</strong>${meta}${note}`)
+          .addTo(baseGroup);
+      });
+
+      activitiesStops.forEach(w => {
+        L.marker([w.lat, w.lng], { icon: activityIcon })
+          .bindPopup(`<strong>${w.name}</strong><br/><br/>${w.note}`)
+          .addTo(activityGroup);
+      });
+
+      customStops.activities.forEach(a => {
+        const note = a.note ? `<br/><br/>${a.note}` : '';
+        const meta = a.address ? `<br/><span style="color:rgba(233,238,246,.75)">${a.address}</span>` : '';
+        L.marker([a.lat, a.lng], { icon: activityIcon })
+          .bindPopup(`<strong>${a.name}</strong>${meta}${note}`)
+          .addTo(activityGroup);
+      });
+
+      quickStops.forEach(q => {
+        L.marker([q.lat, q.lng], { icon: quickIcon })
+          .bindPopup(`<strong>${q.name}</strong><br/><br/>${q.note}`)
+          .addTo(quickGroup);
+      });
+
+      addFlightMarkers(flightLayer, loadFlights());
+      updateRoute();
+    }
+
+    function renderCustomStopsList(){
+      els.customStopsList.textContent = '';
+      const allStops = [
+        ...customStops.bases.map(s => ({ ...s, type: 'base' })),
+        ...customStops.activities.map(s => ({ ...s, type: 'activity' }))
+      ];
+
+      if (allStops.length === 0){
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = 'No custom stops yet.';
+        els.customStopsList.appendChild(empty);
+        return;
+      }
+
+      allStops.forEach(stop => {
+        const card = document.createElement('div');
+        card.className = 'metric';
+        card.dataset.stopId = String(stop.id);
+        card.dataset.stopType = stop.type;
+
+        const header = document.createElement('div');
+        header.className = 'k';
+        const typeLabel = stop.type === 'base' ? 'Base' : 'Activity';
+        header.innerHTML = `<span>${typeLabel}</span><span class="badge"><span class="dot" style="background:${stop.type === 'base' ? 'var(--accent)' : 'var(--good)'}"></span>${typeLabel}</span>`;
+
+        const title = document.createElement('div');
+        title.className = 'v';
+        title.textContent = stop.name;
+
+        const meta = document.createElement('div');
+        meta.className = 'hint';
+        const note = stop.note ? ` • ${stop.note}` : '';
+        meta.textContent = `${stop.address || 'Custom stop'}${note}`;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'btn danger';
+        removeBtn.type = 'button';
+        removeBtn.textContent = 'Remove';
+
+        card.appendChild(header);
+        card.appendChild(title);
+        card.appendChild(meta);
+        card.appendChild(removeBtn);
+        els.customStopsList.appendChild(card);
+      });
+    }
+
+    function formatSuggestion(place){
+      const name = place.display_name ? place.display_name.split(',')[0] : place.name || 'Place';
+      const address = place.display_name || '';
+      return { name, address };
+    }
+
+    function renderStopSuggestions(list){
+      els.stopSuggestions.textContent = '';
+      if (list.length === 0){
+        els.stopSuggestions.style.display = 'none';
+        return;
+      }
+      list.forEach(place => {
+        const { name, address } = formatSuggestion(place);
+        const item = document.createElement('div');
+        item.className = 'suggestion';
+        item.textContent = name;
+        const detail = document.createElement('small');
+        detail.textContent = address;
+        item.appendChild(detail);
+        item.dataset.place = JSON.stringify({
+          name,
+          address,
+          lat: Number(place.lat),
+          lng: Number(place.lon)
+        });
+        els.stopSuggestions.appendChild(item);
+      });
+      els.stopSuggestions.style.display = 'block';
+    }
+
+    function wireCustomStops(){
+      let debounceTimer = null;
+      let searchController = null;
+      let selectedPlace = null;
+
+      const clearSuggestions = () => {
+        els.stopSuggestions.style.display = 'none';
+        els.stopSuggestions.textContent = '';
+      };
+
+      const searchPlaces = (query) => {
+        if (searchController) searchController.abort();
+        searchController = new AbortController();
+        const tuscanyViewbox = '9.6,44.5,12.5,42.1';
+        const tunedQuery = query.match(/\b(win(?:e|ery)|vin(?:e|o)|ristorante|hotel|agriturismo)\b/i)
+          ? query
+          : `${query} winery`;
+        const buildUrl = (q, bounded) => {
+          const params = new URLSearchParams({
+            format: 'jsonv2',
+            limit: '10',
+            addressdetails: '1',
+            extratags: '1',
+            countrycodes: 'it',
+            'accept-language': 'en',
+            q
+          });
+          if (bounded){
+            params.set('viewbox', tuscanyViewbox);
+            params.set('bounded', '1');
+          }
+          return `https://nominatim.openstreetmap.org/search?${params.toString()}`;
+        };
+
+        const runSearch = (bounded) => fetch(buildUrl(tunedQuery, bounded), { signal: searchController.signal })
+          .then(r => r.json());
+
+        runSearch(true)
+          .then(results => {
+            const list = Array.isArray(results) ? results : [];
+            if (list.length > 0) return list;
+            return runSearch(false);
+          })
+          .then(results => renderStopSuggestions(Array.isArray(results) ? results : []))
+          .catch(() => {
+            clearSuggestions();
+          });
+      };
+
+      els.stopSearch.addEventListener('input', () => {
+        selectedPlace = null;
+        const query = els.stopSearch.value.trim();
+        if (debounceTimer) clearTimeout(debounceTimer);
+        if (query.length < 3){
+          clearSuggestions();
+          return;
+        }
+        debounceTimer = setTimeout(() => searchPlaces(query), 300);
+      });
+
+      els.stopSuggestions.addEventListener('click', (event) => {
+        const item = event.target.closest('.suggestion');
+        if (!item) return;
+        const data = JSON.parse(item.dataset.place || '{}');
+        selectedPlace = data;
+        els.stopSearch.value = data.name || '';
+        clearSuggestions();
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!els.stopSuggestions.contains(event.target) && event.target !== els.stopSearch){
+          clearSuggestions();
+        }
+      });
+
+      els.btnAddStop.addEventListener('click', () => {
+        if (!selectedPlace || !Number.isFinite(selectedPlace.lat) || !Number.isFinite(selectedPlace.lng)){
+          alert('Select a suggestion from the list before adding.');
+          return;
+        }
+        const entry = {
+          id: Date.now(),
+          name: selectedPlace.name || els.stopSearch.value.trim() || 'Custom stop',
+          address: selectedPlace.address || '',
+          lat: selectedPlace.lat,
+          lng: selectedPlace.lng,
+          note: (els.stopNote.value || '').trim()
+        };
+        if (els.stopType.value === 'base'){
+          customStops.bases.push(entry);
+        }else{
+          customStops.activities.push(entry);
+        }
+        saveCustomStops(customStops);
+        renderCustomStopsList();
+        refreshMapLayers();
+        els.stopSearch.value = '';
+        els.stopNote.value = '';
+        selectedPlace = null;
+      });
+
+      els.btnClearStops.addEventListener('click', () => {
+        if (!confirm('Clear all custom stops?')) return;
+        customStops = structuredClone(CUSTOM_STOPS_DEFAULTS);
+        saveCustomStops(customStops);
+        renderCustomStopsList();
+        refreshMapLayers();
+      });
+
+      els.customStopsList.addEventListener('click', (event) => {
+        const removeBtn = event.target.closest('button');
+        if (!removeBtn) return;
+        const card = event.target.closest('[data-stop-id]');
+        if (!card) return;
+        const id = Number(card.dataset.stopId);
+        const type = card.dataset.stopType;
+        if (type === 'base'){
+          customStops.bases = customStops.bases.filter(s => s.id !== id);
+        }else{
+          customStops.activities = customStops.activities.filter(s => s.id !== id);
+        }
+        saveCustomStops(customStops);
+        renderCustomStopsList();
+        refreshMapLayers();
+      });
+
+      renderCustomStopsList();
+    }
+
     function initMap(){
       const map = L.map('map', { scrollWheelZoom: true });
       window.__tripMap = map;
@@ -1342,87 +1779,35 @@
       }).addTo(map);
 
       const baseIcon = makeDivIcon('var(--accent)');
-      const wineIcon = makeDivIcon('var(--good)');
+      const activityIcon = makeDivIcon('var(--good)');
       const quickIcon = makeDivIcon('var(--warn)');
 
       const baseGroup = L.featureGroup();
-      const wineGroup = L.featureGroup();
+      const activityGroup = L.featureGroup();
       const quickGroup = L.featureGroup();
       const flightLayer = L.featureGroup();
       window.__flightLayer = flightLayer;
 
-      bases.forEach(b => {
-        L.marker([b.lat, b.lng], { icon: baseIcon })
-          .bindPopup(`<strong>${b.name}</strong><br/><span style="color:rgba(233,238,246,.75)">${b.nights}</span><br/><br/>${b.note}`)
-          .addTo(baseGroup);
-      });
-
-      wineStops.forEach(w => {
-        L.marker([w.lat, w.lng], { icon: wineIcon })
-          .bindPopup(`<strong>${w.name}</strong><br/><br/>${w.note}`)
-          .addTo(wineGroup);
-      });
-
-      quickStops.forEach(q => {
-        L.marker([q.lat, q.lng], { icon: quickIcon })
-          .bindPopup(`<strong>${q.name}</strong><br/><br/>${q.note}`)
-          .addTo(quickGroup);
-      });
-
       baseGroup.addTo(map);
-      wineGroup.addTo(map);
+      activityGroup.addTo(map);
       quickGroup.addTo(map);
       flightLayer.addTo(map);
 
-      addFlightMarkers(flightLayer, loadFlights());
+      window.__tripMapLayers = {
+        baseGroup,
+        activityGroup,
+        quickGroup,
+        flightLayer,
+        baseIcon,
+        activityIcon,
+        quickIcon
+      };
 
-      const initialAll = L.featureGroup([baseGroup, wineGroup, quickGroup, flightLayer]);
-      const initialBounds = initialAll.getBounds().pad(0.18);
-      map.fitBounds(initialBounds);
-      window.__tripMapLastBounds = initialBounds;
-
-      const routeStyle = { color: getComputedStyle(document.documentElement).getPropertyValue('--route').trim() || '#e11d48', weight: 5, opacity: 0.9 };
-      let routeLayer = null;
-
-      const routePoints = [
-        [11.2558, 43.7696],
-        [11.3150, 43.5852],
-        [11.6756, 43.0676],
-        [10.6110, 43.2410],
-        [10.3966, 43.7229],
-        [11.2558, 43.7696]
-      ];
-
-      const coordString = routePoints.map(p => p.join(',')).join(';');
-
-      fetch(`https://router.project-osrm.org/route/v1/driving/${coordString}?overview=full&geometries=geojson&alternatives=false&steps=false&annotations=false`)
-        .then(r => r.json())
-        .then(data => {
-          if (data.routes && data.routes[0] && data.routes[0].geometry){
-            routeLayer = L.geoJSON(data.routes[0].geometry, routeStyle).addTo(map);
-            const allWithRoute = L.featureGroup([baseGroup, wineGroup, quickGroup, flightLayer, routeLayer]);
-            const b = allWithRoute.getBounds().pad(0.18);
-            map.fitBounds(b);
-            window.__tripMapLastBounds = b;
-          }
-        })
-        .catch(() => {
-          routeLayer = L.polyline(routePoints.map(p => [p[1], p[0]]), {
-            color: routeStyle.color,
-            weight: 4,
-            opacity: 0.5,
-            dashArray:'6 8'
-          }).addTo(map);
-
-          const allWithRoute = L.featureGroup([baseGroup, wineGroup, quickGroup, flightLayer, routeLayer]);
-          const b = allWithRoute.getBounds().pad(0.18);
-          map.fitBounds(b);
-          window.__tripMapLastBounds = b;
-        });
+      refreshMapLayers();
 
       L.control.layers(null, {
         'Bases (overnight)': baseGroup,
-        'Wine recommendations': wineGroup,
+        'Activities': activityGroup,
         'Quick stops': quickGroup,
         'Flights (FLR)': flightLayer
       }, { collapsed: false }).addTo(map);
@@ -1437,7 +1822,7 @@
       assert(document.getElementById('budgetTbody'), 'budget table body exists');
       assert(document.getElementById('budgetInputs').style.display === 'none', 'budget editor hidden by default');
       assert(Array.isArray(bases) && bases.length >= 3, 'bases array populated');
-      assert(Array.isArray(wineStops) && wineStops.length >= 1, 'wineStops array populated');
+      assert(Array.isArray(activitiesStops) && activitiesStops.length >= 1, 'activitiesStops array populated');
       assert(document.querySelectorAll('.tabbtn').length >= 3, 'tabs exist');
       return true;
     }
@@ -1461,6 +1846,7 @@
         wireBudgetEvents();
         renderBudgetItems();
         updateBudgetUI();
+        wireCustomStops();
         initMap();
 
         try{ runSelfTests(); }catch(e){ console.error(e); }
