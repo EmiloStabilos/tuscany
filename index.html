@@ -1048,37 +1048,59 @@
     let currentBudget = loadBudgetV2();
 
     function renderBudgetItems(){
-      els.budgetTbody.innerHTML = '';
+      els.budgetTbody.textContent = '';
       const items = [...currentBudget.items].sort((a,b) => (b.date || '').localeCompare(a.date || '') || (b.id - a.id));
+      const fragment = document.createDocumentFragment();
 
       items.forEach(it => {
         const tr = document.createElement('tr');
         const date = it.date || '—';
         const cat = CATEGORY_LABELS[it.category] || it.category || '—';
-        const noteSafe = (it.note || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const note = (it.note || '').trim();
         const amt = fmt(currentBudget.currency, Number(it.amount) || 0);
-        tr.innerHTML = `
-          <td>${date}</td>
-          <td>${cat}</td>
-          <td>${noteSafe || '<span style="color:rgba(168,179,199,.75)">—</span>'}</td>
-          <td style="text-align:right; font-weight:800;">${amt}</td>
-          <td><button class="btn danger" type="button" data-del="${it.id}">Delete</button></td>
-        `;
-        els.budgetTbody.appendChild(tr);
+
+        const dateTd = document.createElement('td');
+        dateTd.textContent = date;
+
+        const catTd = document.createElement('td');
+        catTd.textContent = cat;
+
+        const noteTd = document.createElement('td');
+        if (note){
+          noteTd.textContent = note;
+        }else{
+          const emptyNote = document.createElement('span');
+          emptyNote.textContent = '—';
+          emptyNote.style.color = 'rgba(168,179,199,.75)';
+          noteTd.appendChild(emptyNote);
+        }
+
+        const amtTd = document.createElement('td');
+        amtTd.textContent = amt;
+        amtTd.style.textAlign = 'right';
+        amtTd.style.fontWeight = '800';
+
+        const btnTd = document.createElement('td');
+        const delBtn = document.createElement('button');
+        delBtn.className = 'btn danger';
+        delBtn.type = 'button';
+        delBtn.dataset.del = String(it.id);
+        delBtn.textContent = 'Delete';
+        btnTd.appendChild(delBtn);
+
+        tr.appendChild(dateTd);
+        tr.appendChild(catTd);
+        tr.appendChild(noteTd);
+        tr.appendChild(amtTd);
+        tr.appendChild(btnTd);
+        fragment.appendChild(tr);
       });
+
+      els.budgetTbody.appendChild(fragment);
 
       const empty = currentBudget.items.length === 0;
       els.budgetEmpty.style.display = empty ? 'block' : 'none';
 
-      els.budgetTbody.querySelectorAll('button[data-del]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = Number(btn.getAttribute('data-del'));
-          currentBudget.items = currentBudget.items.filter(x => x.id !== id);
-          saveBudgetV2(currentBudget);
-          renderBudgetItems();
-          updateBudgetUI();
-        });
-      });
     }
 
     function updateBudgetUI(){
@@ -1148,6 +1170,16 @@
         saveBudgetV2(currentBudget);
         els.bItemAmt.value = '';
         els.bItemNote.value = '';
+        renderBudgetItems();
+        updateBudgetUI();
+      });
+
+      els.budgetTbody.addEventListener('click', (event) => {
+        const btn = event.target.closest('button[data-del]');
+        if (!btn || !els.budgetTbody.contains(btn)) return;
+        const id = Number(btn.dataset.del);
+        currentBudget.items = currentBudget.items.filter(x => x.id !== id);
+        saveBudgetV2(currentBudget);
         renderBudgetItems();
         updateBudgetUI();
       });
